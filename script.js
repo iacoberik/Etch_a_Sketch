@@ -1,6 +1,9 @@
 const container = document.querySelector('.container_table');
 const gridSelector = document.querySelector("input[name='grid']");
+const gridSize = document.querySelector('.grid_size');
+console.log(gridSize);
 let gridSelectorNumber = gridSelector.valueAsNumber;
+
 
 const createGrid = (grid) => {
     squareGrid = grid * grid;
@@ -9,7 +12,6 @@ const createGrid = (grid) => {
     while (i < squareGrid){
         let div = document.createElement('div');
         div.classList.add('grid-element');
-        div.classList.add('grid-'+i);
         container.appendChild(div);
         i++;
     }
@@ -22,8 +24,9 @@ function changeBackgroud(){
 
 function cb(){
     gridSelectorNumber = this.valueAsNumber;
+    gridSize.textContent = gridSelectorNumber+' x ' +gridSelectorNumber;
     container.innerHTML = ''; 
-    createGrid(gridSelectorNumber); 
+    createGrid(gridSelectorNumber);
     let gridElements = document.querySelectorAll('.grid-element');
     gridElements.forEach( element => element.addEventListener('mouseenter', changeBackgroud));
 }
