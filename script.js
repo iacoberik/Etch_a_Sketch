@@ -1,9 +1,10 @@
 const container = document.querySelector('.container_table');
 const gridSize = document.querySelector('.grid_size');
 const gridSelector = document.querySelector("input[name='grid']");
-gridSelector.addEventListener('change', changeGrid);
 
 let gridSelectorNumber = gridSelector.valueAsNumber;
+
+gridSelector.addEventListener('change', changeGrid);
 gridSize.textContent = gridSelectorNumber + ' x ' + gridSelectorNumber;
 
 const createGrid = (grid) => {
